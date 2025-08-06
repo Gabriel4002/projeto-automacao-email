@@ -32,6 +32,8 @@ projeto-automacao-email/
 ├── codigo_envio_email.py          # Função para envio de e-mails via SMTP
 ├── planilha/
 │   └── notas_alunos.xlsx    # Planilha gerada automaticamente
+├── exemplos_aprendizado/    # Scripts e testes durante o estudo
+│   └── exemplo_openpyxl.py
 ├── .env                     # Variáveis de ambiente (NÃO subir no GitHub)
 ├── .gitignore
 └── README.md

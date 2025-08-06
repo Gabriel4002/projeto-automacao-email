@@ -1,38 +1,41 @@
-from openpyxl import load_workbook, Workbook
+from openpyxl import Workbook
 from openpyxl.utils import get_column_letter
 from codigo_envio_email import enviar_email
+from datetime import datetime
+import os
 
+
+os.makedirs("logs", exist_ok=True)
 
 data = {
-    "Gabriel":{
+    "Gabriel": {
         "Email": "gabriellobato315@gmail.com",
         "Notas": {
-        "Matematica": 10,
-        "Portugues": 8,
-        "Historia": 6,
-        "Geografia": 1
+            "Matematica": 10,
+            "Portugues": 8,
+            "Historia": 6,
+            "Geografia": 1
         }
     },
-    "Ana":{
+    "Ana": {
         "Email": "ana@email.com",
         "Notas": {
-        "Matematica": 4,
-        "Portugues": 3,
-        "Historia": 7,
-        "Geografia": 3
+            "Matematica": 4,
+            "Portugues": 3,
+            "Historia": 7,
+            "Geografia": 3
         }
     },
-    "Jorge Willem":{
+    "Jorge Willem": {
         "Email": "jorgewillem@email.com",
         "Notas": {
-        "Matematica": 9,
-        "Portugues": 4,
-        "Historia": 2,
-        "Geografia": 10
+            "Matematica": 9,
+            "Portugues": 4,
+            "Historia": 2,
+            "Geografia": 10
         }
     }
 }
-
 
 wb = Workbook()
 ws = wb.active
@@ -54,7 +57,18 @@ for aluno, dados in data.items():
     media = total / len(notas)
     corpo += f"\nMédia: {media:.2f}\n\nAtenciosamente,\nSecretaria Escolar"
 
-    enviar_email(dados["Email"], "Boletim Escolar", corpo)
-    print(f"E-mail enviado para {aluno}")
+    email_destino = dados["Email"]
+
+    try:
+        enviar_email(email_destino, "Boletim Escolar", corpo)
+        print(f"E-mail enviado para {aluno}")
+
+        with open("logs/envios_log.txt", "a", encoding="utf-8") as f:
+            f.write(f"[{datetime.now().strftime('%Y-%m-%d %H:%M')}] {aluno} - {email_destino} - ENVIADO\n")
+
+    except Exception as e:
+        print(f"Erro ao enviar para {aluno}: {e}")
+        with open("logs/envios_log.txt", "a", encoding="utf-8") as f:
+            f.write(f"[{datetime.now().strftime('%Y-%m-%d %H:%M')}] {aluno} - {email_destino} - FALHA: {e}\n")
 
 wb.save("planilha/notas_alunos.xlsx")

@@ -10,8 +10,10 @@ Este projeto tem como objetivo automatizar o envio de e-mails personalizados par
 - 🧠 Cálculo automático da média por aluno
 - ✉️ Envio de e-mails personalizados com `smtplib` e `email.message`
 - 🔐 Proteção de dados sensíveis com `.env` e `python-dotenv`
-- 🗂️ Organização modular do código
+- 🗂️ Organização modular do código e Registro completo dos envios em um arquivo `logs/envios_log.txt`
 - ✅ Inclusão dos scripts usados durante o processo de aprendizagem
+  
+
 
 ---
 
@@ -34,6 +36,8 @@ projeto-automacao-email/
 │   └── notas_alunos.xlsx    # Planilha gerada automaticamente
 ├── exemplos_aprendizado/    # Scripts e testes durante o estudo
 │   └── exemplo_openpyxl.py
+├── logs/    # Scripts e testes durante o estudo
+│   └── envios_log.txt
 ├── .env                     # Variáveis de ambiente (NÃO subir no GitHub)
 ├── .gitignore
 └── README.md

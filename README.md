@@ -35,7 +35,11 @@ projeto-automacao-email/
 ├── planilha/
 │   └── notas_alunos.xlsx    # Planilha gerada automaticamente
 ├── exemplos_aprendizado/    # Scripts e testes durante o estudo
-│   └── exemplo_openpyxl.py
+│   └── base.py
+    └── ex01.py
+    └── ex02.py
+    └── ex03.py
+    └── final_ex.py
 ├── logs/    # Scripts e testes durante o estudo
 │   └── envios_log.txt
 ├── .env                     # Variáveis de ambiente (NÃO subir no GitHub)

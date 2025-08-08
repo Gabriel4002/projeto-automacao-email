@@ -1,3 +1,6 @@
+⚠️ Este projeto foi substituído por uma versão mais avançada:  
+[**automacao-escolar-python**](https://github.com/Gabriel4002/automacao-escolar-python)  
+
 # 🤖 Projeto de Automação de E-mails com Python
 
 Este projeto tem como objetivo automatizar o envio de e-mails personalizados para diferentes destinatários com base em dados extraídos de uma planilha Excel. Foi desenvolvido como parte do meu aprendizado em automação com Python.
